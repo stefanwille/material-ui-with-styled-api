@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 
 import { StyledDemo } from './StyledDemo.jsx';
 import { MakeStylesDemo } from './MakeStylesDemo.jsx';
-import Other from './Other.jsx';
 
 function App() {
-	React.useRef();
 	return (
 		<div className="App">
 			Hello!
-			<StyledDemo />
+			<StyledDemo color="blue" />
 			<MakeStylesDemo color="blue" />
 		</div>
 	);

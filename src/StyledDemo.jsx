@@ -5,25 +5,26 @@ import Button from '@material-ui/core/Button';
 /*
 
   This demo uses the 'styled' API as opposed to 'makeStyles'.
-  It seems to be a bit more ergonomic.
 
 */
 
-const StyledButton = styled(Button)({
+const StyledButton = styled(({ myColorProp, ...other }) => <Button {...other} />)({
 	marginLeft: '3rem',
 	height: '5rem',
 
 	'& .MuiButton-label': {
-		backgroundColor: 'red',
+		backgroundColor: (props) => props.myColorProp || 'red',
 		color: 'yellow',
 	},
 });
 
-export function StyledDemo() {
+export function StyledDemo(props) {
 	return (
 		<div>
 			<Button variant="contained">Unstyled Button</Button>
-			<StyledButton variant="contained">Button styled with "styled()"</StyledButton>
+			<StyledButton myColorProp={props.color} variant="contained">
+				Button styled with "styled()"
+			</StyledButton>
 		</div>
 	);
 }

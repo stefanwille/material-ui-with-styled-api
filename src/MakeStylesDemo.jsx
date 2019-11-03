@@ -15,13 +15,13 @@ const useStyles = makeStyles({
 	},
 
 	label: {
-		backgroundColor: 'red',
-		color: 'green',
+		backgroundColor: (props) => props.color || 'red',
+		color: 'yellow',
 	},
 });
 
-export function MakeStylesDemo() {
-	const classes = useStyles();
+export function MakeStylesDemo(props) {
+	const classes = useStyles(props);
 	return (
 		<div>
 			<Button variant="contained">Unstyled Button</Button>
